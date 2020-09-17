@@ -6,7 +6,7 @@ RUN  apt-get install -y python3
 # Install pip
 RUN apt-get install -y wget vim
 RUN wget -O /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py
-RUN python3 /tmp/get-pip.py
+RUN python3 --user /tmp/get-pip.py
 RUN pip install --user --upgrade pip
 #Install other libs
 #RUN pip install -U flask
