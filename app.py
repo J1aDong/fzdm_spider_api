@@ -11,9 +11,15 @@ app = Flask(__name__)
 
 currentPath = os.path.abspath(os.path.dirname(__file__))
 logPath = currentPath + '/log/geckodriver.log'
-driver = webdriver.Firefox(service_log_path=logPath)
+# driver = webdriver.Firefox(service_log_path=logPath)
+ce = "http://j1adong.tpddns.cn:4444/wd/hub"
+driver = webdriver.Remote(command_executor=ce, desired_capabilities={
+    "browserName": os.environ.get("browser", "firefox"),
+    "platform": "Linux"
+})
 
 mhPrefix = 'http://www-mipengine-org.mipcdn.com/i/p3.manhuapan.com'
+
 
 @app.route('/')
 def hello_world():
