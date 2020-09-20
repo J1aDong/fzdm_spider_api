@@ -2,7 +2,7 @@ FROM daocloud.io/python:3-onbuild
 
 RUN mkdir /usr/local/download && cd /usr/local/download
 
-RUN https://blog.csdn.net/iamhuanggua/article/details/60140867?tt_from=weixin&utm_source=weixin&utm_medium=toutiao_ios&utm_campaign=client_share&wxshare_count=1
+RUN wget http://yum.baseurl.org/download/3.2/yum-3.2.28.tar.gz && tar xvf yum-3.2.28.tar.gz
 
 RUN touch /etc/ yum.conf && cd yum-3.2.28 && yummain.py install yum
 
