@@ -2,11 +2,7 @@ FROM daocloud.io/python:3-onbuild
 
 RUN mkdir /usr/local/download && cd /usr/local/download
 
-RUN wget http://yum.baseurl.org/download/3.2/yum-3.2.28.tar.gz && tar xvf yum-3.2.28.tar.gz
-
-RUN touch /etc/ yum.conf && cd yum-3.2.28 && yummain.py install yum
-
-RUN cd /usr/local/download
+RUN apt-get install yum
 
 RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.15.0/geckodriver-v0.15.0-linux64.tar.gz &&\
     tar xvzf geckodriver-*.tar.gz && rm -f -f /usr/bin/geckodriver && ln -s /usr/local/download/geckodriver /usr/bin/geckodriver
