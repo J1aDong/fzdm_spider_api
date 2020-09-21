@@ -18,8 +18,8 @@ driver = webdriver.Remote(command_executor=ce, desired_capabilities={
     "platform": "Linux"
 })
 
-mhPrefix = 'http://www-mipengine-org.mipcdn.com/i/p3.manhuapan.com'
-
+# mhPrefix = 'http://www-mipengine-org.mipcdn.com/i/p3.manhuapan.com'
+mhPrefix = 'http://'
 
 @app.route('/')
 def hello_world():
@@ -35,6 +35,8 @@ def getCommic():
 
     driver.get(url)
     soup = BeautifulSoup(driver.page_source, 'lxml')
+
+    driver.close()
 
     imgDiv = soup.find(id="mhimg0")
 
